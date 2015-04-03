@@ -26,8 +26,31 @@ function Objects.Remove(id)
 end
 
 function Objects.Draw()
-    for i = 1, table.getn(Objects) do
+    for i = 1, Objects.count do
         Objects[i]:draw()
+    end
+end
+
+function Objects.DoWith(scope,code)
+    --Scope can be equal to the id of an object, a table of ids, or to "all" which, naturally, will perform "code"
+    --on all objects as opposed to just one.
+
+    if type(scope) == "table" then
+        for i = 1, table.getn(scope) do
+            if Objects.count >= scope[i] then
+                code(Objects[scope[i]])
+            end
+        end
+    elseif scope == "all" then
+        for i = 1, Objects.count do
+            if Objects.count >= i then
+                code(Objects[i])
+            end
+        end
+    else
+        if Objects.count >= scope then
+            code(Objects[scope])
+        end
     end
 end
 
