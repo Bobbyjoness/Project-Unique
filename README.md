@@ -2,9 +2,9 @@
 "Project Unique" is the engine behind Love Game Maker; a tool allowing kids to easily create games using the LOVE2D framework.
 
 It allows for extremely simple coding of games not possible in most other engines!
-For example, drawing a simple picture (Known as a "sprite.") to the screen.
+For example, let's take the simple process of drawing a picture (Known as a "sprite.") to the screen.
 
-In MonoGame (A popular open-source interpretation of Microsoft's game framework, XNA.):
+In MonoGame, (A popular open-source interpretation of Microsoft's game framework, XNA.) drawing a picture named "smiley.png" to the screen goes something like this:
 
 ```C#
 using System;
@@ -37,7 +37,7 @@ namespace example
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
-	    spriteBatch.Draw(smiley,new Vector2(0,0));
+            spriteBatch.Draw(smiley,new Vector2(0,0));
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -46,7 +46,7 @@ namespace example
 }
 ```
 
-In Project Unique:
+While in Project Unique, the same task can be accomplished like so:
 
 ```Lua
 Class = require "Main.libraries.hump.class"
@@ -61,7 +61,7 @@ function love.draw()
 end
 ```
 
-And that's not all! In future updates we're planning on making it even simpler! So you'll literally be able to shorten that already tiny bit of code down to this:
+And that's not all! I'm currently working on making it even simpler! So you'll literally be able to shorten that already tiny bit of code down to this:
 
 ```Lua
 require "ProjectUnique"
@@ -72,3 +72,7 @@ function love.draw()
     Objects.Draw()
 end
 ```
+
+Just to let that really sink in, that's 38 lines of code in MonoGame vs. 7 lines of code in Project Unique. And both accomplish the same task.
+
+##More README content coming soon!
