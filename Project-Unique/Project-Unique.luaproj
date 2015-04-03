@@ -33,6 +33,8 @@
     <Compile Include="Main\libraries\hump\vector-light.lua" />
     <Compile Include="Main\libraries\hump\vector.lua" />
     <Compile Include="Main\Object.lua" />
+    <Compile Include="Main\Sprite.lua" />
+    <Compile Include="Main\Objects.lua" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actions\" />

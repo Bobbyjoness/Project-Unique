@@ -3,13 +3,22 @@
 --Currently a major work in progress!
 
 Class = require "Main.libraries.hump.class"
+require "Main.Sprite"
 require "Main.Object"
+require "Main.Objects"
 
-objects = {Object(1,40,0),Object(2)}
-objects[2].y = 20
+love.window.setTitle("Project Unique Objects test")
 
 function love.draw()
-    for i = 1, table.getn(objects) do
-        objects[i]:draw()
+    Objects.Draw()
+    love.graphics.print('"Project Unique" Objects test!',100,0)
+    love.graphics.print("Press space to add Objects and R to remove them.",100,16)
+end
+
+function love.keypressed(key)
+    if key == " " then
+        Objects.Add()
+    elseif key == "r" then
+        Objects.Remove()
     end
 end
