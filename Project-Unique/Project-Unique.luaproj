@@ -32,6 +32,8 @@
     <Compile Include="Main\libraries\hump\timer.lua" />
     <Compile Include="Main\libraries\hump\vector-light.lua" />
     <Compile Include="Main\libraries\hump\vector.lua" />
+    <Compile Include="Main\libraries\middleclass.lua" />
+    <Compile Include="Main\Object.lua" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actions\" />

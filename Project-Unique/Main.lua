@@ -3,22 +3,10 @@
 --Currently a major work in progress!
 
 Class = require "Main.libraries.hump.class"
+require "Main.Object"
 
-Critter = Class{}
-Lizard = Class{}
-Class.include(Lizard, Critter)
-
-function Critter:draw()
-    love.graphics.print("Hey!",0,20)
-end
-
-function Lizard:draw()
-    love.graphics.print("I'm also a lizard!",0,40)
-end
-
-crit = Lizard()
+object1 = Object()
 
 function love.draw()
-    love.graphics.print("test",0,0)
-    crit.draw()
+    love.graphics.print("test " .. object1.i,0,0)
 end
