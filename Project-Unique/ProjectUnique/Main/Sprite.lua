@@ -1,7 +1,3 @@
---Project Unique!
---The engine behind Love Game Maker
---Currently a major work in progress!
-
 --Sprite.lua holds the sprite class, as well as all the sprite-related functions!
 
 Sprite = Class{}

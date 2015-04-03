@@ -1,11 +1,7 @@
 --Project Unique Objects test!
 --A sample to show off simple sprite/Object functionallity in Project Unique.
 --By: Radfordhound
-
-Class = require "Main.libraries.hump.class"
-require "Main.Sprite"
-require "Main.Object"
-require "Main.Resources"
+require "ProjectUnique.ProjectUnique"
 
 love.window.setTitle("Project Unique Objects test")
 spr_test = Sprites.Add({"tst.png"})

@@ -24,28 +24,30 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ProjectUnique\ProjectUnique.lua" />
     <Compile Include="Main.lua" />
-    <Compile Include="Main\libraries\hump\camera.lua" />
-    <Compile Include="Main\libraries\hump\class.lua" />
-    <Compile Include="Main\libraries\hump\gamestate.lua" />
-    <Compile Include="Main\libraries\hump\signal.lua" />
-    <Compile Include="Main\libraries\hump\timer.lua" />
-    <Compile Include="Main\libraries\hump\vector-light.lua" />
-    <Compile Include="Main\libraries\hump\vector.lua" />
-    <Compile Include="Main\Object.lua" />
-    <Compile Include="Main\Resources.lua" />
-    <Compile Include="Main\Sprite.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\camera.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\class.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\gamestate.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\signal.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\timer.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\vector-light.lua" />
+    <Compile Include="ProjectUnique\libraries\hump\vector.lua" />
+    <Compile Include="ProjectUnique\Main\Object.lua" />
+    <Compile Include="ProjectUnique\Main\Resources.lua" />
+    <Compile Include="ProjectUnique\Main\Sprite.lua" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Actions\" />
-    <Folder Include="Main\" />
-    <Folder Include="Main\libraries\" />
-    <Folder Include="Main\libraries\hump\" />
+    <Folder Include="ProjectUnique\Custom\" />
+    <Folder Include="ProjectUnique\libraries\hump\" />
+    <Folder Include="ProjectUnique\" />
+    <Folder Include="ProjectUnique\libraries\" />
+    <Folder Include="ProjectUnique\Main\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Actions\README.txt" />
-    <Content Include="Main\libraries\hump\README.md" />
-    <Content Include="Main\README.txt" />
+    <Content Include="ProjectUnique\Custom\README.txt" />
+    <Content Include="ProjectUnique\libraries\hump\README.md" />
+    <Content Include="ProjectUnique\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
