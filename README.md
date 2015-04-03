@@ -49,22 +49,7 @@ namespace example
 While in Project Unique, the same task can be accomplished like so:
 
 ```Lua
-Class = require "Main.libraries.hump.class"
-require "Main.Sprite"
-require "Main.Object"
-require "Main.Resources"
-
-Objects.Add(0,0,Sprite({"smiley.png"}))
-
-function love.draw()
-    Objects.Draw()
-end
-```
-
-And that's not all! I'm currently working on making it even simpler! So you'll literally be able to shorten that already tiny bit of code down to this:
-
-```Lua
-require "ProjectUnique"
+require "ProjectUnique.ProjectUnique"
 
 Objects.Add(0,0,Sprite({"smiley.png"}))
 
