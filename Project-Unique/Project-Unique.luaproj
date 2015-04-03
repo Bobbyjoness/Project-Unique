@@ -12,8 +12,8 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>ProjectUnique</Name>
-    <RootNamespace>ProjectUnique</RootNamespace>
+    <Name>Project-Unique</Name>
+    <RootNamespace>Project-Unique</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +25,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.lua" />
+    <Compile Include="Main\libraries\hump\camera.lua" />
+    <Compile Include="Main\libraries\hump\class.lua" />
+    <Compile Include="Main\libraries\hump\gamestate.lua" />
+    <Compile Include="Main\libraries\hump\signal.lua" />
+    <Compile Include="Main\libraries\hump\timer.lua" />
+    <Compile Include="Main\libraries\hump\vector-light.lua" />
+    <Compile Include="Main\libraries\hump\vector.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+    <Folder Include="Main\" />
+    <Folder Include="Main\libraries\" />
+    <Folder Include="Main\libraries\hump\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\README.txt" />
+    <Content Include="Main\libraries\hump\README.md" />
+    <Content Include="Main\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
