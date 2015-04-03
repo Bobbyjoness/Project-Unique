@@ -5,8 +5,11 @@
 Class = require "Main.libraries.hump.class"
 require "Main.Object"
 
-object1 = Object()
+objects = {Object(1,40,0),Object(2)}
+objects[2].y = 20
 
 function love.draw()
-    love.graphics.print("test " .. object1.i,0,0)
+    for i = 1, table.getn(objects) do
+        objects[i]:draw()
+    end
 end
