@@ -50,14 +50,10 @@ While in Project Unique, the same task can be accomplished like so:
 
 ```Lua
 require "ProjectUnique.ProjectUnique"
-
 Objects.Add(0,0,Sprite({"smiley.png"}))
-
-function love.draw()
-    Objects.Draw()
-end
 ```
 
-Just to let that really sink in, that's 38 lines of code in MonoGame vs. 7 lines of code in Project Unique. And both accomplish the same task.
+Just to let that really sink in, that's 38 lines of code in MonoGame vs. 2 lines of code in Project Unique. And both accomplish the same task.
+You don't even have to call a Draw function if you don't want to! Project Unique draws objects by itself! 
 
 ##More README content coming soon!

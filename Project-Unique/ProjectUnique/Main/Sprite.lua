@@ -10,3 +10,7 @@ function Sprite:init(frames)
         end
     end
 end
+
+function Sprite:update()
+    --
+end
