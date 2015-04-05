@@ -36,8 +36,9 @@ function Keypressed(key)
         Objects.Remove()
     elseif key == "s" then
         Objects.DoWith("all",
-                        function(self)
-                            self.sprite = spr_test2
-                        end)
+        
+        function(self)
+            self.changesprite(self,spr_test2)
+        end           )
     end
 end

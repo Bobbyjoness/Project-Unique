@@ -9,8 +9,15 @@ require "ProjectUnique.Main.Resources"
 
 framerate = 60
 
+local next_time = 0
+
+function love.load()
+    next_time = love.timer.getTime()
+end
+
 function love.update(dt)
-    dt = math.min(dt, 1/framerate)
+    next_time = next_time + 1/framerate
+    Objects.Update(dt)
 
     if Step ~= nil then
         return Step(dt)
@@ -20,8 +27,15 @@ end
 function love.draw()
     Objects.Draw()
     if Draw ~= nil then
-        return Draw()
+        Draw()
     end
+
+    local cur_time = love.timer.getTime()
+    if next_time <= cur_time then
+        next_time = cur_time
+        return
+    end
+    love.timer.sleep(next_time - cur_time)
 end
 
 function love.keypressed(key)

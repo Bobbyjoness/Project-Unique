@@ -4,8 +4,8 @@ Sprite = Class{}
 
 function Sprite:init(frames)
     if frames ~= nil then
+        self.frames = {}
         for i=1,table.getn(frames) do
-            self.frames = {}
             table.insert(self.frames,love.graphics.newImage(frames[i]))
         end
     end

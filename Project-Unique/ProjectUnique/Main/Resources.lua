@@ -8,8 +8,8 @@
 Objects = {}
 Objects.count = table.getn(Objects)
 
-function Objects.Add(x,y,spr)
-    table.insert(Objects,Object(Objects.count+1,x,y,spr))
+function Objects.Add(x,y,spr,animspd)
+    table.insert(Objects,Object(Objects.count+1,x,y,spr,animspd))
     Objects.count = Objects.count + 1
     return Objects[Objects.count]
 end
@@ -28,6 +28,12 @@ end
 function Objects.Draw()
     for i = 1, Objects.count do
         Objects[i]:draw()
+    end
+end
+
+function Objects.Update(dt)
+    for i = 1, Objects.count do
+        Objects[i]:step(dt)
     end
 end
 
