@@ -15,3 +15,13 @@ function DrawSprite(sprite,x,y)
 		love.graphics.draw(sprite, Ternary((x ~= nil),x,0), Ternary((y ~= nil),y,0))
 	end
 end
+
+function SpriteFileisSupported(file)
+	for i, format in ipairs(SupportedSpriteFormats) do
+		if string.find(file,"%." .. format) ~= nil then
+			--LoadSprite("Resources/Sprites/",file)
+			return true
+		end
+	end
+	return false
+end

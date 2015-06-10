@@ -18,11 +18,8 @@ require "ProjectUnique.Text"
 local files = love.filesystem.getDirectoryItems("Resources/Sprites")
 
 for i, file in ipairs(files) do
-	for o, format in ipairs(SupportedSpriteFormats) do
-		if string.find(file,"%." .. format) ~= nil then
-			LoadSprite("Resources/Sprites/",file)
-			break
-		end
+	if SpriteFileisSupported(file) then
+		LoadSprite("Resources/Sprites/",file)
 	end
 end
 
@@ -48,8 +45,8 @@ end
 files = love.filesystem.getDirectoryItems("Resources/Fonts")
 
 for i, file in ipairs(files) do
-	if string.find(file,"%.ttf") ~= nil then
-		Fonts[string.sub(file,0,string.find(file,"%.ttf")-1)] = love.graphics.newFont("Resources/Fonts/" .. file, 15)
+	if string.find(string.lower(file),"%.ttf") ~= nil then
+		LoadFont(file,15)
 	end
 end
 
