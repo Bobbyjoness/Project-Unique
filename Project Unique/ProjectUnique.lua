@@ -13,6 +13,7 @@ require "ProjectUnique.Sprite"
 require "ProjectUnique.Object"
 require "ProjectUnique.Room"
 require "ProjectUnique.Text"
+require "ProjectUnique.Input"
 
 --Load all the 'sprites' under the Resources/Sprites folder.
 local files = love.filesystem.getDirectoryItems("Resources/Sprites")
@@ -67,8 +68,10 @@ function love.update(dt)
 end
 
 function love.draw()
-	if Rooms[currentroom] ~= nil and Rooms[currentroom].Draw~= nil then
-		Rooms[currentroom]:Draw(dt)
+	prntypos = 0
+	
+	if Rooms[currentroom] ~= nil and Rooms[currentroom].Print~= nil then
+		Rooms[currentroom]:Print(dt)
 	end
 	
 	if Draw ~= nil then

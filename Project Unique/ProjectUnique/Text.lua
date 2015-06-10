@@ -1,5 +1,6 @@
 --This file handles text-based functions
 Fonts = {}
+prntypos = 0
 
 function LoadFont(name,chars)
 	if name == nil then
@@ -46,5 +47,6 @@ function SetFont(name,size)
 end
 
 function DrawText(text,x,y)
-	love.graphics.print(Ternary((text ~= nil),text,"MISSINGNO"),Ternary((x ~= nil),x,0),Ternary((y ~= nil),y,0))
+	love.graphics.print(Ternary((text ~= nil),text,"MISSINGNO"),Ternary((x ~= nil),x,0),Ternary((y ~= nil),y,prntypos))
+	prntypos = prntypos+16
 end

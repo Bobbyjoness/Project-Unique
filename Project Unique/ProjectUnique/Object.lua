@@ -1,4 +1,3 @@
-Objects = {}
 Object = Class{}
 
 function Object:init(x,y,id)
