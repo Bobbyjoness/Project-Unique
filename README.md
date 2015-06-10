@@ -2,7 +2,7 @@
 
 **IMPORTANT!!!** This engine is currently in a very "beta" state, and is being re-constructed from scratch at the time of writing. Don't expect things to be complete/work correctly just yet! I'm working on it! :)
 
-"Project Unique" is the engine behind Love Game Maker; a tool allowing kids to easily create games using the LÖVE framework.
+"Project Unique" is the engine behind Love Game Maker; a tool allowing kids to easily create games using the LÃ–VE framework.
 
 It allows for extremely simple coding of games not possible in most other engines!
 
@@ -11,7 +11,7 @@ For example, let's take the simple process of drawing (Or "printing.") text to t
 ##It's simpler than other engines!
 In **MonoGame**, *(A popular open-source interpretation of Microsoft's game framework, XNA.)* drawing "Hello World!" to the screen requires that you first make a "SpriteFont", a large picture containing each individual character from a font. For example, here's a spritefont of the "Arial" font that's included with Microsoft Windows:
 
-![Insert image here](https://github.com/Radfordhound/Project-Unique/blob/master/images/READMEimg1.bmp)
+![A spritefont of the 'Arial' font included with Windows.](https://github.com/Radfordhound/Project-Unique/blob/master/images/READMEimg1.bmp)
 
 There's two basic ways to go about doing this. The first is to simply make the spritefont manually and load it.
 
