@@ -1,4 +1,4 @@
-# Project-Unique
+﻿<div align="center"><img src="https://raw.githubusercontent.com/Radfordhound/Project-Unique/master/images/logowhitebig.png" width="604" height="274"></img></div>
 
 **IMPORTANT!!!** This engine is currently in a very "beta" state, and is being re-constructed from scratch at the time of writing. Don't expect things to be complete/work correctly just yet! I'm working on it! :)
 
