@@ -5,11 +5,23 @@
 --Declare/define some variables
 currentroom = 1
 projectuniqueversion = "DEV 1.0"
+SupportedImageFormats = {"bmp","dds","hdr","icns","ico","gif","jpg","jpe","jpeg","png","tga"}
+
+--Oh, and a few random functions. (Because I'm SO organized! :P)
+function ImageFileisSupported(file)
+	for i, format in ipairs(SupportedImageFormats) do
+		if string.find(file,"%." .. format) ~= nil then
+			return true
+		end
+	end
+	return false
+end
 
 --Require ALL the things! :D
 require "ProjectUnique.libraries.hump"
 require "ProjectUnique.Advanced"
 require "ProjectUnique.Sprite"
+require "ProjectUnique.Background"
 require "ProjectUnique.Object"
 require "ProjectUnique.Room"
 require "ProjectUnique.Text"
@@ -19,8 +31,17 @@ require "ProjectUnique.Input"
 local files = love.filesystem.getDirectoryItems("Resources/Sprites")
 
 for i, file in ipairs(files) do
-	if SpriteFileisSupported(file) then
+	if ImageFileisSupported(file) then
 		LoadSprite("Resources/Sprites/",file)
+	end
+end
+
+--Load all the 'backgrounds' under the Resources/Backgrounds folder.
+files = love.filesystem.getDirectoryItems("Resources/Backgrounds")
+
+for i, file in ipairs(files) do
+	if ImageFileisSupported(file) then
+		LoadBackground("Resources/Backgrounds/",file)
 	end
 end
 
@@ -52,6 +73,7 @@ for i, file in ipairs(files) do
 end
 
 LoadRoom(1) --Load the first room in the 'Rooms' table... if that wasn't obvious enough. :P
+
 
 --------------------------------------------------------
 --Now for the wrapping of the standard LOVE functions!--

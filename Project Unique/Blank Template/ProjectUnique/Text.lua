@@ -17,7 +17,7 @@ function LoadFont(name,chars)
 			return shrtnm
 		end
 	else
-		if SpriteFileisSupported("Resources/Fonts/" .. name) then
+		if ImageFileisSupported("Resources/Fonts/" .. name) then
 			shrtnm = string.sub(string.lower(name),0,string.find(string.lower(name),"%.")-1)
 			
 			if Fonts[shrtnm] == nil then

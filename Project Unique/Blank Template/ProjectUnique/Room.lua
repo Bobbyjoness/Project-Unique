@@ -4,10 +4,15 @@ Room = Class{}
 --Functions related to the Room class
 function Room:init()
 	self.Objects = {} --The table that holds all spawned objects
+	self.Backgrounds = {} --The table that holds every background on each layer
 end
 
 function Room:Print()
 	if self ~= nil then
+		for i, back in ipairs(self.Backgrounds) do
+			DrawBackground(back,Ternary((back.x ~= nil),back.x,0),Ternary((back.y ~= nil),back.y,0),Ternary((back.dowrap ~= nil),back.dowrap,false))
+		end
+		
 		for i, obj in ipairs(self.Objects) do
 			obj:Draw()
 		end
@@ -21,7 +26,9 @@ end
 function Room:Update()
 	if self ~= nil then
 		for i, obj in ipairs(self.Objects) do
-			obj:Step()
+			if obj.Step ~= nil then
+				obj:Step()
+			end
 		end
 	end
 	
