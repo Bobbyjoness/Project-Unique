@@ -4,7 +4,7 @@
 
 --Declare/define some variables
 currentroom = 1
-projectuniqueversion = "DEV 1.0"
+projectuniqueversion = "DEV 1.1"
 SupportedImageFormats = {"bmp","dds","hdr","icns","ico","gif","jpg","jpe","jpeg","png","tga"}
 
 --Oh, and a few random functions. (Because I'm SO organized! :P)
