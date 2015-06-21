@@ -1,10 +1,25 @@
 Rooms = {}
 Room = Class{}
+currentroom = 1 --Not local so users can check what the currentroom is in their objects.
 
 --Functions related to the Room class
 function Room:init()
 	self.Objects = {} --The table that holds all spawned objects
 	self.Backgrounds = {} --The table that holds every background on each layer
+	self.persistent = false --Wether or not the room's state is saved in memory when rooms are switched.
+end
+
+function Room:Unload()
+	if not self.persistent then
+		--Delete everything within the objects and backgrounds tables without changing the tables' pointers.
+		for i in pairs(self.Objects) do
+			self.Objects[i] = nil
+		end
+		
+		for i in pairs(self.Backgrounds) do
+			self.Backgrounds[i] = nil
+		end
+	end
 end
 
 function Room:Print()
@@ -48,8 +63,7 @@ function Room:AddObject(obj,x,y)
 end
 
 function Room:RemoveObject(id)
-	--Don't continue unless self is defined to prevent errors from in-correct use of the function.
-	if self ~= nil then
+	if self ~= nil then --Don't continue unless self is defined to prevent errors from in-correct use of the function.
 		if id == nil then
 			id = table.getn(self.Objects) --If no id is given we simply remove most recently-added object.
 		end
@@ -60,7 +74,7 @@ function Room:RemoveObject(id)
 		end
 		
 		--Then, decrement the id's of all objects with higher id's than the object we just removed to fill any empty id's.
-		for i, obj in ipairs(self.Objects) do
+		for i, obj in pairs(self.Objects) do
 			if id < obj.id then
 				obj.id = obj.id - 1
 			end
@@ -69,8 +83,12 @@ function Room:RemoveObject(id)
 end
 
 --Other room-related functions
-function LoadRoom(rm)
+function GotoRoom(rm)
 	if table.getn(Rooms) >= rm and Rooms[rm] ~= nil and Rooms[rm].Load ~= nil then
+		for i, room in ipairs(Rooms) do
+			room:Unload()
+		end
+		
 		Rooms[rm]:Load()
 	end
 end

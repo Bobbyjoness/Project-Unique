@@ -1,22 +1,74 @@
+--This file holds everything related to imagry in Project Unique.
+
+--Generic Images
+local SupportedImageFormats = {"bmp","dds","hdr","icns","ico","gif","jpg","jpe","jpeg","png","tga"}
+
+local function ImageFileisSupported(file)
+	for i, format in ipairs(SupportedImageFormats) do
+		if string.find(file,"%." .. format) ~= nil then
+			return true
+		end
+	end
+	
+	return false
+end
+
+function LoadImage(img)
+	if img ~= nil then
+		if type(img) == "string" then
+			if love.filesystem.exists(img) and ImageFileisSupported(img) then --'img' is a direct path to a file
+				return love.graphics.newImage(img)
+			elseif love.filesystem.exists("Resources/Sprites/"..img) and ImageFileisSupported("Resources/Sprites/"..img) then --'img' is a full filename with it's extension inside the "Resources/Sprites" folder.
+				return love.graphics.newImage("Resources/Sprites/"..img)
+			elseif love.filesystem.exists("Resources/Backgrounds/"..img) and ImageFileisSupported("Resources/Backgrounds/"..img) then --'img' is a full filename with it's extension inside the "Resources/Backgrounds" folder.
+				return love.graphics.newImage("Resources/Backgrounds/"..img)
+			else
+				for i, imgtype in ipairs(SupportedImageFormats) do
+					if love.filesystem.exists("Resources/Sprites/"..img..'.'..imgtype) then --'img' is a short filename without it's extension inside the "Resources/Sprites" folder.
+						return love.graphics.newImage("Resources/Sprites/"..img..'.'..imgtype)
+					end
+					if love.filesystem.exists("Resources/Backgrounds/"..img..'.'..imgtype) then --'img' is a short filename without it's extension inside the "Resources/Backgrounds" folder.
+						return love.graphics.newImage("Resources/Backgrounds/"..img..'.'..imgtype)
+					end
+				end
+			end
+		elseif type(img) == "userdata" then --We assume that 'img' is an image.
+			return img
+		end
+	end
+	
+	return nil
+end
+
+--Sprites
+Sprites = {}
+
+function DrawSprite(sprite,x,y,rot,sx,sy,ox,oy)
+	if sprite ~= nil then
+		love.graphics.draw(sprite, Ternary((x ~= nil),x,0), Ternary((y ~= nil),y,0),Ternary((rot ~= nil),rot,0),Ternary((sx ~= nil),sx,1),Ternary((sy ~= nil),sy,1),Ternary((ox ~= nil),ox,0),Ternary((oy ~= nil),oy,0))
+	end
+end
+
+function Sprite(spr)
+	if Sprites[spr] == nil or type(Sprites[spr]) ~= "userdata" then
+		Sprites[spr] = LoadImage(spr)
+	end
+	
+	return Sprites[spr]
+end
+
+--Backgrounds
 Background = Class{}
-Backgrounds = {}
 
 function Background:init(back,x,y,dowraph,dowrapv,hs,vs)
-	self.bg = back
+	self.bg = LoadImage(back)
+
 	self.x = Ternary((x ~= nil),x,0)
 	self.y = Ternary((y ~= nil),y,0)
 	self.dowraph = Ternary((dowraph ~= nil),dowraph,false)
 	self.dowrapv = Ternary((dowrapv ~= nil),dowrapv,false)
 	self.hspd = Ternary((hs ~= nil),hs,0)
 	self.vspd = Ternary((vs ~= nil),vs,0)
-end
-
-function LoadBackground(path,filename)
-	if filename ~= nil then
-		Backgrounds[string.sub(filename,0,string.find(filename,"%.")-1)] = Background(love.graphics.newImage(path .. filename))
-	else
-		Backgrounds[string.sub(path,0,string.find(path,"%.")-1)] = Background(love.graphics.newImage(path))
-	end
 end
 
 function DrawBackground(bg)
