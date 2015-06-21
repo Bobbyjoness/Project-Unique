@@ -114,7 +114,7 @@ For example, let's say you frequently use more advanced coding functions such as
 ```Lua
 require "ProjectUnique"
 
-i = 7
+local i = 7
 
 function Draw()
 	if i >= 7 then
@@ -132,7 +132,7 @@ Or this:
 ```Lua
 require "ProjectUnique"
 
-i = 7
+local i = 7
 
 function Draw()
 	if i >= 7 then
@@ -148,7 +148,7 @@ You can just do this:
 ```Lua
 require "ProjectUnique"
 
-i = 7
+local i = 7
 
 function Draw()
 	DrawText("i is " .. Ternary((i >= 7),"greater than or equal to 7.","less than 7."))
@@ -160,7 +160,7 @@ You can even chain Project Unique's Ternary functions together, just like you'd 
 ```Lua
 require "ProjectUnique"
 
-i = 7
+local i = 7
 
 function Draw()
 	DrawText("i is " .. Ternary((i >= 7),Ternary((i == 7),"equal to 7.","greater than 7."),"less than 7."))
@@ -197,7 +197,7 @@ In this example, we'll make a coin and call it "obj_coin." Assuming our sprite's
 obj_coin = Object:clone() --This makes a new Object called 'obj_coin' based off of the Object class defined by Project Unique
 
 function obj_tst:Create() --This is what the game does when you spawn an instance of this object.
-	self.sprite = Sprites["coin"] --Set obj_coin's sprite to 'coin.png', which Project Unique auto-loaded for us. :)
+	self.sprite = Sprite("coin.png") --Load "coin.png" (If it's not already loaded.) and set obj_coin's sprite to it. :)
 end
 ```
 
@@ -208,7 +208,7 @@ room1 = Room:clone() --This makes a new room called 'room1' based off of the Roo
 
 function room1:Load() --This is what the game does when this room is loaded.
 	self:AddObject(obj_coin,0,0) --Spawns a coin at X:0, Y:0 (The top-left of the screen.)
-	self:AddObject(obj_coin,30,22)
+	self:AddObject(obj_coin,30,22) --Spawns a coin at X:30, Y:22 (Think of grids in math, but where the Y axis is reversed, so positive values are lower on the screen than negative ones.)
 end
 
 return room1() --This hands your room over to Project Unique, which automatically adds it to it's list of rooms.
